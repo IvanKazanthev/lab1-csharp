@@ -27,7 +27,7 @@ x=5,25
 
 ![Результат работы](screenshots/task1.png)
 
-![Проверка ввода](screenshots/task1,1.png)
+![Проверка ввода](screenshots/task1,2.png)
 
 ## Задача 3
 
