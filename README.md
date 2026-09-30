@@ -437,7 +437,7 @@ x=12567
 
 ![Результат работы](screenshots/task13.png)
 
-![Проверка ввода](screenshots/task13,1.png)
+![Проверка ввода](screenshots/13,1.png)
 
 ---
 
