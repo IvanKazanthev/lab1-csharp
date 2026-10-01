@@ -1,285 +1,286 @@
 using System;
 
-namespace lab1
+namespace lab1;
+
+internal class Tasks
 {
-    internal class Tasks
+    // МЕТОДЫ
+
+    // Задание 1
+    public double fraction(double x)
     {
-        // МЕТОДЫ
+        return x - (int)x;
+    }
 
-        // Задание 1
-        public double fraction(double x)
+    // Задание 3
+    public int charToNum(char x)
+    {
+        return x - '0';
+    }
+
+    // Задание 5
+    public bool is2Digits(int x)
+    {
+        return (x >= 10 && x <= 99)
+               || (x <= -10 && x >= -99);
+    }
+
+    // Задание 7
+    public bool isInRange(int a, int b, int num)
+    {
+        return (num >= a && num <= b)
+               || (num >= b && num <= a);
+    }
+
+    // Задание 9
+    public bool isEqual(int a, int b, int c)
+    {
+        return a == b && b == c;
+    }
+
+    // УСЛОВИЯ
+
+    // Задание 1
+    public int abs(int x)
+    {
+        if (x < 0)
         {
-            return x - (int)x;
+            return -x;
         }
 
-        // Задание 3
-        public int charToNum(char x)
+        return x;
+    }
+
+    // Задание 3
+    public bool is35(int x)
+    {
+        return (x % 3 == 0 && x % 5 != 0)
+               || (x % 3 != 0 && x % 5 == 0);
+    }
+
+    // Задание 5
+    public int max3(int x, int y, int z)
+    {
+        int max = x;
+
+        if (y > max)
         {
-            return x - '0';
+            max = y;
         }
 
-        // Задание 5
-        public bool is2Digits(int x)
+        if (z > max)
         {
-            return (x >= 10 && x <= 99) || (x <= -10 && x >= -99);
+            max = z;
         }
 
-        // Задание 7
-        public bool isInRange(int a, int b, int num)
+        return max;
+    }
+
+    // Задание 7
+    public int sum2(int x, int y)
+    {
+        int sum = x + y;
+
+        if (sum >= 10 && sum <= 19)
         {
-            return (num >= a && num <= b) || (num >= b && num <= a);
+            return 20;
         }
 
-        // Задание 9
-        public bool isEqual(int a, int b, int c)
+        return sum;
+    }
+
+    // Задание 9
+    public string day(int x)
+    {
+        switch (x)
         {
-            return a == b && b == c;
+            case 1:
+                return "понедельник";
+            case 2:
+                return "вторник";
+            case 3:
+                return "среда";
+            case 4:
+                return "четверг";
+            case 5:
+                return "пятница";
+            case 6:
+                return "суббота";
+            case 7:
+                return "воскресенье";
+            default:
+                return "это не день недели";
+        }
+    }
+
+    // ЦИКЛЫ
+
+    // Задание 1
+    public string listNums(int x)
+    {
+        string result = "";
+
+        for (int i = 0; i <= x; i++)
+        {
+            result += i + " ";
         }
 
-        // УСЛОВИЯ
+        return result.TrimEnd();
+    }
 
-        // Задание 1
-        public int abs(int x)
+    // Задание 3
+    public string chet(int x)
+    {
+        string result = "";
+
+        for (int i = 0; i <= x; i += 2)
         {
-            if (x < 0)
+            result += i + " ";
+        }
+
+        return result.TrimEnd();
+    }
+
+    // Задание 5
+    public int numLen(long x)
+    {
+        int count = 1;
+
+        while (x >= 10 || x <= -10)
+        {
+            x = x / 10;
+            count++;
+        }
+
+        return count;
+    }
+
+    // Задание 7
+    public void square(int x)
+    {
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
             {
-                return -x;
+                Console.Write("*");
             }
 
-            return x;
+            Console.WriteLine();
         }
+    }
 
-        // Задание 3
-        public bool is35(int x)
+    // Задание 9
+    public void rightTriangle(int x)
+    {
+        for (int i = 1; i <= x; i++)
         {
-            return (x % 3 == 0 && x % 5 != 0) ||
-                   (x % 3 != 0 && x % 5 == 0);
-        }
-
-        // Задание 5
-        public int max3(int x, int y, int z)
-        {
-            int max = x;
-
-            if (y > max)
+            for (int j = 0; j < x - i; j++)
             {
-                max = y;
+                Console.Write(" ");
             }
 
-            if (z > max)
+            for (int j = 0; j < i; j++)
             {
-                max = z;
+                Console.Write("*");
             }
 
-            return max;
+            Console.WriteLine();
         }
+    }
 
-        // Задание 7
-        public int sum2(int x, int y)
+    // МАССИВЫ
+
+    // Задание 1
+    public int findFirst(int[] arr, int x)
+    {
+        for (int i = 0; i < arr.Length; i++)
         {
-            int sum = x + y;
-
-            if (sum >= 10 && sum <= 19)
+            if (arr[i] == x)
             {
-                return 20;
-            }
-
-            return sum;
-        }
-
-        // Задание 9
-        public string day(int x)
-        {
-            switch (x)
-            {
-                case 1:
-                    return "понедельник";
-                case 2:
-                    return "вторник";
-                case 3:
-                    return "среда";
-                case 4:
-                    return "четверг";
-                case 5:
-                    return "пятница";
-                case 6:
-                    return "суббота";
-                case 7:
-                    return "воскресенье";
-                default:
-                    return "это не день недели";
+                return i;
             }
         }
 
-        // ЦИКЛЫ
+        return -1;
+    }
 
-        // Задание 1
-        public string listNums(int x)
+    // Задание 3
+    public int maxAbs(int[] arr)
+    {
+        int max = arr[0];
+
+        for (int i = 1; i < arr.Length; i++)
         {
-            string result = "";
-
-            for (int i = 0; i <= x; i++)
+            if (Math.Abs(arr[i]) > Math.Abs(max))
             {
-                result += i + " ";
+                max = arr[i];
             }
-
-            return result.TrimEnd();
         }
 
-        // Задание 3
-        public string chet(int x)
+        return max;
+    }
+
+    // Задание 5
+    public int[] add(int[] arr, int[] ins, int pos)
+    {
+        int[] result = new int[arr.Length + ins.Length];
+
+        for (int i = 0; i < pos; i++)
         {
-            string result = "";
-
-            for (int i = 0; i <= x; i += 2)
-            {
-                result += i + " ";
-            }
-
-            return result.TrimEnd();
+            result[i] = arr[i];
         }
 
-        // Задание 5
-        public int numLen(long x)
+        for (int i = 0; i < ins.Length; i++)
         {
-            int count = 1;
+            result[pos + i] = ins[i];
+        }
 
-            while (x >= 10 || x <= -10)
+        for (int i = pos; i < arr.Length; i++)
+        {
+            result[ins.Length + i] = arr[i];
+        }
+
+        return result;
+    }
+
+    // Задание 7
+    public int[] reverseBack(int[] arr)
+    {
+        int[] result = new int[arr.Length];
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            result[i] = arr[arr.Length - 1 - i];
+        }
+
+        return result;
+    }
+
+    // Задание 9
+    public int[] findAll(int[] arr, int x)
+    {
+        int count = 0;
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == x)
             {
-                x = x / 10;
                 count++;
             }
-
-            return count;
         }
 
-        // Задание 7
-        public void square(int x)
+        int[] result = new int[count];
+        int index = 0;
+
+        for (int i = 0; i < arr.Length; i++)
         {
-            for (int i = 0; i < x; i++)
+            if (arr[i] == x)
             {
-                for (int j = 0; j < x; j++)
-                {
-                    Console.Write("*");
-                }
-
-                Console.WriteLine();
+                result[index] = i;
+                index++;
             }
         }
 
-        // Задание 9
-        public void rightTriangle(int x)
-        {
-            for (int i = 1; i <= x; i++)
-            {
-                for (int j = 0; j < x - i; j++)
-                {
-                    Console.Write(" ");
-                }
-
-                for (int j = 0; j < i; j++)
-                {
-                    Console.Write("*");
-                }
-
-                Console.WriteLine();
-            }
-        }
-
-        // МАССИВЫ
-        
-        // Задание 1
-        public int findFirst(int[] arr, int x)
-        {
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] == x)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
-
-        // Задание 3
-        public int maxAbs(int[] arr)
-        {
-            int max = arr[0];
-
-            for (int i = 1; i < arr.Length; i++)
-            {
-                if (Math.Abs(arr[i]) > Math.Abs(max))
-                {
-                    max = arr[i];
-                }
-            }
-
-            return max;
-        }
-
-        // Задание 5
-        public int[] add(int[] arr, int[] ins, int pos)
-        {
-            int[] result = new int[arr.Length + ins.Length];
-
-            for (int i = 0; i < pos; i++)
-            {
-                result[i] = arr[i];
-            }
-
-            for (int i = 0; i < ins.Length; i++)
-            {
-                result[pos + i] = ins[i];
-            }
-
-            for (int i = pos; i < arr.Length; i++)
-            {
-                result[ins.Length + i] = arr[i];
-            }
-
-            return result;
-        }
-
-        // Задание 7
-        public int[] reverseBack(int[] arr)
-        {
-            int[] result = new int[arr.Length];
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                result[i] = arr[arr.Length - 1 - i];
-            }
-
-            return result;
-        }
-
-        // Задание 9
-        public int[] findAll(int[] arr, int x)
-        {
-            int count = 0;
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] == x)
-                {
-                    count++;
-                }
-            }
-
-            int[] result = new int[count];
-            int index = 0;
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] == x)
-                {
-                    result[index] = i;
-                    index++;
-                }
-            }
-
-            return result;
-        }
+        return result;
     }
 }
